@@ -1,9 +1,6 @@
-import './assets/css/style.css';
-import './assets/css/menu.css';
 import React from "react";
 
-
-function Product() {
+export default function Product() {
   return (
     <div className="main">
       <div className="content">
@@ -60,7 +57,7 @@ function Product() {
         <div className="section group">
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-3.html">
-              <img src="images/feature-pic1.png" alt />
+              <img src={require('../../assets/img/feature-pic1.png')} alt="pic1" />
             </a>
             <h2>Lorem Ipsum is simply </h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -70,7 +67,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-3.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -86,7 +83,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-2.html">
-              <img src="images/feature-pic2.jpg" alt />
+              <img src={require('../../assets/img/feature-pic2.jpg')} alt="pic2" />
             </a>
             <h2>Lorem Ipsum is simply </h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -96,7 +93,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="#" className="cart-button">
                   Add to Cart
                 </a>
@@ -112,7 +109,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-4.html">
-              <img src="images/feature-pic3.jpg" alt />
+              <img src={require('../../assets/img/feature-pic3.jpg')} alt="pic3" />
             </a>
             <h2>Lorem Ipsum is simply </h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -122,7 +119,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-6.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -138,7 +135,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-4.html">
-              <img src="images/feature-pic4.png" alt />
+              <img src={require('../../assets/img/feature-pic4.png')} alt="pic4" />
             </a>
             <h2>Lorem Ipsum is simply </h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
@@ -148,7 +145,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-4.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -216,7 +213,7 @@ function Product() {
         <div className="section group">
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-3.html">
-              <img src="images/new-pic1.jpg" alt />
+              <img src={require('../../assets/img/new-pic1.jpg')} alt="pic1" />
             </a>
             <div className="discount">
               <span className="percentage">40%</span>
@@ -228,7 +225,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+              <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-3.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -244,7 +241,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-4.html">
-              <img src="images/new-pic2.jpg" alt />
+              <img src={require('../../assets/img/new-pic2.jpg')} alt="pic2" />
             </a>
             <div className="discount">
               <span className="percentage">22%</span>
@@ -256,7 +253,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-4.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -272,7 +269,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-2.html">
-              <img src="images/feature-pic2.jpg" alt />
+              <img src={require('../../assets/img/feature-pic2.jpg')} alt="feature-pic2" />
             </a>
             <div className="discount">
               <span className="percentage">55%</span>
@@ -284,7 +281,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-2.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -300,7 +297,7 @@ function Product() {
           </div>
           <div className="grid_1_of_4 images_1_of_4">
             <a href="preview-2.html">
-              <img src="images/new-pic3.jpg" alt />
+              <img src={require('../../assets/img/new-pic3.jpg')} alt="new-pic3" />
             </a>
             <div className="discount">
               <span className="percentage">66%</span>
@@ -312,7 +309,7 @@ function Product() {
             </p>
             <div className="button">
               <span>
-                <img src="images/cart.jpg" alt />
+                <img src={require('../../assets/img/cart.jpg')} alt="cart" />
                 <a href="preview-2.html" className="cart-button">
                   Add to Cart
                 </a>
@@ -331,5 +328,3 @@ function Product() {
     </div>
   );
 }
-
-export default Product;
