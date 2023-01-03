@@ -440,7 +440,6 @@ nav{
 	z-index:100;
 	float: left;
 }
-.menu li:first-child{margin-left:0;}
 .menu li a{
 	text-transform:uppercase;
 	text-decoration: none;
@@ -468,7 +467,7 @@ nav{
 	left: 0px;
 	background: #ffffff;
 }
-.menu ul li{display:block;float:none;background:none;margin:0;padding:0;}
+.menu ul li{display:block;float:none;background:none;margin:0;}
 .menu ul li a{
 	font-size: 13px;
 	font-weight: normal;
@@ -543,8 +542,25 @@ ul.sub-menu.list-unstyled.sub-menu3 {
     position: absolute !important;
     top: 60px !important;
 }
+
 .nav-drop.nav-top-brand {
     width: 100%;
+}
+
+.nav-top-brand{
+  display: flex;
+	flex-direction: column;
+	margin-bottom: -10px;
+}
+
+.nav-top-brand li {
+	padding: 10px 0 10px 10px;
+	border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.nav-top-brand li:hover{
+	background:rgb(150, 150, 150);
+	cursor: pointer;
 }
 /* start slider */
 /**** Header Botttom Left ****/

@@ -1,8 +1,28 @@
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
 import HeaderBottom from './components/layouts/HeaderBottom';
+import productApis from './api/products.js';
+
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [ products, setProducts ] = useState([]);
+  let componentMounted = true;
+
+  useEffect(() => {
+      const getProduct = async () => {
+      const result = await productApis.getProductList();
+      console.log(result)
+      if(componentMounted) {
+        setProducts(result);
+      }
+      return () => {
+        componentMounted = false;
+      }
+    }
+    getProduct();
+  }, [])
+
   return (
     <>
       <HeaderBottom/>
@@ -44,42 +64,18 @@ function App() {
               <div className="clear" />
             </div>
             <div className="section group">
-              <div className="grid_1_of_4 images_1_of_4">
+              {products.map(item => (
+                <div className="grid_1_of_4 images_1_of_4">
                 <a href="#">
-                  <img src={require('./assets/img/feature-pic1.png')} alt="preview-3" />
+                  <img src={item.img} alt="item.name" />
                 </a>
-                <h2>Lorem Ipsum is simply </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                <p><span className="strike">$528.22</span><span className="price">$505.22</span></p>
+                <h2>{item.name.substring(0,25)}...</h2>
+                <p>{item.description.substring(0,30)}...</p>
+                <p><span className="strike">${item.original_price}</span><span className="price">${item.discount_price}</span></p>
                 <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-3.html" className="cart-button">Add to Cart</a></span> </div>
                 <div className="button"><span><a href="preview-3.html" className="details">Details</a></span></div>
               </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src={require('./assets/img/feature-pic2.jpg')} alt="preview-2" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                <p><span className="strike">$640.89</span><span className="price">$620.87</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-3.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="#" className="details">Details</a></span></div>
-              </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src={require('./assets/img/feature-pic3.jpg')} alt="cart" /></a>
-                <h2>Lorem Ipsum is simply </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                <p><span className="strike">$240.66</span><span className="price">$220.97</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-6.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="#" className="details">Details</a></span></div>
-              </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#">
-                  <img src={require('./assets/img/feature-pic4.png')} alt="preview"/>
-                </a>
-                <h2>Lorem Ipsum is simply </h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-                <p><span className="strike">$436.22</span><span className="price">$415.54</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-3.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="#" className="details">Details</a></span></div>
-              </div>
+              ))}
             </div>
             <div className="content_bottom">
               <div className="heading">
@@ -120,46 +116,18 @@ function App() {
               <div className="clear" />
             </div>
             <div className="section group">
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src={require('./assets/img/new-pic1.jpg')} alt="preview-3" /></a>
-                <div className="discount">
-                  <span className="percentage">40%</span>
-                </div>
-                <h2>Lorem Ipsum is simply </h2>
-                <p><span className="strike">$438.99</span><span className="price">$403.66</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-3.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="preview-3.html" className="details">Details</a></span></div>
-              </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src={require('./assets/img/new-pic2.jpg')} alt="preview-4" /></a>
-                <div className="discount">
-                  <span className="percentage">22%</span>
-                </div>
-                <h2>Lorem Ipsum is simply </h2>
-                <p><span className="strike">$667.22</span><span className="price">$621.75</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-4.html" className="cart-button">Add to Cart</a></span></div>
-                <div className="button"><span><a href="preview-4.html" className="details">Details</a></span></div>
-              </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"><img src={require('./assets/img/feature-pic2.jpg')} alt="preview-2" /></a>
-                <div className="discount">
-                  <span className="percentage">55%</span>
-                </div>
-                <h2>Lorem Ipsum is simply </h2>
-                <p><span className="strike">$457.22</span><span className="price">$428.02</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-2.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="preview-2.html" className="details">Details</a></span></div>
-              </div>
-              <div className="grid_1_of_4 images_1_of_4">
-                <a href="#"> <img src={require('./assets/img/new-pic3.jpg')} alt="new-pic3" /></a>
-                <div className="discount">
-                  <span className="percentage">66%</span>
-                </div>
-                <h2>Lorem Ipsum is simply </h2>					 
-                <p><span className="strike">$643.22</span><span className="price">$457.88</span></p>
-                <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-2.html" className="cart-button">Add to Cart</a></span> </div>
-                <div className="button"><span><a href="#" className="details">Details</a></span></div>
-              </div>
+             {products.map(item => (
+               <div className="grid_1_of_4 images_1_of_4">
+               <a href="#"><img src={item.img} alt={item.name} /></a>
+               <div className="discount">
+                 <span className="percentage">{item.discount_percent}%</span>
+               </div>
+               <h2>{item.name.substring(0,25)}...</h2>
+               <p><span className="strike">${item.original_price}</span><span className="price">${item.discount_price}</span></p>
+               <div className="button"><span><img src={require('./assets/img/cart.jpg')} alt="cart" /><a href="preview-3.html" className="cart-button">Add to Cart</a></span> </div>
+               <div className="button"><span><a href="preview-3.html" className="details">Details</a></span></div>
+             </div>
+             ))}
             </div>
           </div>
         </div>

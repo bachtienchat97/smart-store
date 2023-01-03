@@ -17,7 +17,7 @@ export default function HeaderBottom() {
             <p>Lorem ipsum dolor sit amet sed do eiusmod.</p>
             <div className="button">
               <span>
-                <a href="preview.html">Add to cart</a>
+                <a href="preview.html">Detail</a>
               </span>
             </div>
           </div>
@@ -33,7 +33,7 @@ export default function HeaderBottom() {
             <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
             <div className="button">
               <span>
-                <a href="preview-5.html">Add to cart</a>
+                <a href="preview-5.html">Detail</a>
               </span>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function HeaderBottom() {
             <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
             <div className="button">
               <span>
-                <a href="preview-3.html">Add to cart</a>
+                <a href="preview-3.html">Detail</a>
               </span>
             </div>
           </div>
@@ -68,7 +68,7 @@ export default function HeaderBottom() {
             <p>Lorem ipsum dolor sit amet, sed do eiusmod.</p>
             <div className="button">
               <span>
-                <a href="preview-6.html">Add to cart</a>
+                <a href="preview-6.html">Detail</a>
               </span>
             </div>
           </div>
