@@ -1,7 +1,25 @@
-import React from 'react'
+import React  from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import topBrandApis from '../api/topBrand.js';
 
-export default function Navbar() {
+function Navbar() {
+  const [ topBrand, setTopBrand ] = useState([])
+  let componentMounted = true;
+  useEffect(() => {
+      const getTopBrand = async () => {
+      const result = await topBrandApis.getTopBrandList();
+      console.log( result)
+      if(componentMounted) {
+        setTopBrand(result);
+      }
+      return () => {
+        componentMounted = false;
+      }
+    }
+    getTopBrand();
+  }, [])
+
   return (
     <div className="h_menu">
     <a id="touch-menu" className="mobile-menu" href="#">
@@ -165,24 +183,11 @@ export default function Navbar() {
           <ul className="sub-menu list-unstyled sub-menu2">
             <div className="navg-drop-main">
               <div className="nav-drop nav-top-brand">
-                <li>
-                  <a href="products.html">Product 1</a>
-                </li>
-                <li>
-                  <a href="products.html">Product 2</a>
-                </li>
-                <li>
-                  <a href="products.html">Product 3</a>
-                </li>
-                <li>
-                  <a href="products.html">Product 4</a>
-                </li>
-                <li>
-                  <a href="products.html">Product 5</a>
-                </li>
-                <li>
-                  <a href="products.html">Product 6</a>
-                </li>
+                {topBrand.map(item => (<li key={item.id}>
+                  <span>
+                  {item.name}
+                  </span>
+                </li>))}
               </div>
             </div>
           </ul>
@@ -257,3 +262,5 @@ export default function Navbar() {
     </div>
   )
 }
+
+export default Navbar;
