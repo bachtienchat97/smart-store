@@ -9,7 +9,7 @@ function Navbar() {
   useEffect(() => {
       const getTopBrand = async () => {
       const result = await topBrandApis.getTopBrandList();
-      console.log( result)
+      
       if(componentMounted) {
         setTopBrand(result);
       }

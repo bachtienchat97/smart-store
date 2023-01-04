@@ -1,6 +1,7 @@
 import React from "react";
 import '../../assets/css/flexslider.css';
 import { Link } from 'react-router-dom';
+import Search from "../search-products/Search";
 
 
 export default function Header() {
@@ -13,25 +14,7 @@ export default function Header() {
           </Link>
         </div>
         <div className="header_top_right">
-          <div className="search_box">
-            <form>
-              <input
-                type="text"
-                defaultValue="Search for Products"
-                onFocus={(e) => (e.target.value = "")}
-                onBlur={(e) =>
-                  e.target.value == ""
-                    ? (e.target.value = "Search for Products")
-                    : ""
-                }
-              />
-              <input
-                type="submit"
-                value={"search"}
-                style={{ textTransform: "uppercase" }}
-              />
-            </form>
-          </div>
+          <Search />
           <div className="shopping_cart">
             <div className="cart">
               <a href="#" title="View my shopping cart">
