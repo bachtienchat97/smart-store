@@ -1,0 +1,27 @@
+.search-products {
+  position: absolute;
+  top: 40px;
+  z-index: 1000;
+  width: 100%;
+}
+
+.products-content {
+  display: flex;
+  flex-direction: column;
+  border: 2px groove #636363;
+  background: #fff;
+  margin-bottom: -30px;
+}
+
+.search-products p {
+  padding-bottom: 10px;
+  padding: 5px; 
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+
+.search-products p:hover {
+  background-color: #636363;
+  color: #ffff;
+}

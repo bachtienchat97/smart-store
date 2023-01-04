@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
       const getProduct = async () => {
       const result = await productApis.getProductList();
-      console.log(result)
       if(componentMounted) {
         setProducts(result);
       }
@@ -65,7 +64,7 @@ function App() {
             </div>
             <div className="section group">
               {products.map(item => (
-                <div className="grid_1_of_4 images_1_of_4">
+                <div className="grid_1_of_4 images_1_of_4" key={item.id}>
                 <a href="#">
                   <img src={item.img} alt="item.name" />
                 </a>
@@ -117,7 +116,7 @@ function App() {
             </div>
             <div className="section group">
              {products.map(item => (
-               <div className="grid_1_of_4 images_1_of_4">
+               <div className="grid_1_of_4 images_1_of_4" key={item.id}>
                <a href="#"><img src={item.img} alt={item.name} /></a>
                <div className="discount">
                  <span className="percentage">{item.discount_percent}%</span>
