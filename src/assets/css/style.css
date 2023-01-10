@@ -148,7 +148,9 @@ body{
 	z-index: 1;
 	background: #70389C;
 }
+
 .login{
+	position: relative;
 	float:left;
 	margin-left:10px;
 	width:60px;
@@ -161,6 +163,66 @@ body{
 	box-sizing: border-box;
 	background: url(../img/gradient_light-1.png) 0 0 repeat-x;
 }
+
+.login-in{
+	position: relative;
+	float:left;
+	margin-left:10px;
+	width:60px;
+	height: 38px;
+	display: block;
+	border: 1px solid #CECECE;
+	text-align: center;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: url(../img/gradient_light-1.png) 0 0 repeat-x;
+}
+
+.login-in:hover .user{
+	display: block;
+}
+
+.login-in > .user {
+	font-size: 15px;
+	border-radius: 4px;
+	outline: none;
+	border: 1px solid;
+	z-index: 1000;
+	position: absolute;
+	top: 36px;
+	right: -25px;
+	width: 110px;
+	background-color: #ffffff;
+	display: none;
+}
+
+.login-in > .user > .item-user{
+	border-bottom: 1px solid #ccc;
+	padding: 4px;
+	transition: 0.1s ease;
+	text-align: center;
+}
+
+.user > .item-user:hover {
+	opacity: 0.9;
+	background: #ccc;
+}
+
+.login span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.login-in span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
 .login span a img{
 	padding-top:8px;
 }

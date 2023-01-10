@@ -4,24 +4,18 @@ import './index.css';
 import './assets/css/style.css';
 import './assets/css/menu.css';
 
-import LayoutDefault from './layout/LayoutDefault';
-import Product from './views/pages/Product';
+import './configAxios';
 
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import App from './App';
+import { UserProvider } from './context/UserContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<LayoutDefault/>}>
-        <Route path="" element={<App/>} />
-        <Route path="products" element={<Product/>} />
-      </Route>
-    </Routes>
-    </BrowserRouter>
+    <UserProvider>
+      <App/>
+    </UserProvider>
   </React.StrictMode>
 );
 
