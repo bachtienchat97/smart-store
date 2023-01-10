@@ -1,16 +1,36 @@
-import React from "react";
-import '../../assets/css/flexslider.css';
-import { Link } from 'react-router-dom';
-import Search from "../search-products/Search";
-
+import React, { useState, useEffect } from "react";
+import 'assets/css/flexslider.css';
+import { Link,useNavigate } from 'react-router-dom';
+import Search from "components/search-products/Search";
+import { SMART_STORE_USERNAME } from "constants";
+import { useStore, actions } from "store";
 
 export default function Header() {
+  const [userLogin, setUserLogin] = useState([])
+  const [ state, dispatch ] = useStore()
+  const { users } = state;
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem(SMART_STORE_USERNAME));
+
+  useEffect(() => {
+    if(user) {
+      setUserLogin(user);
+      navigate("");
+    }
+  }, [users])
+
+  const logout = async () => {
+    await dispatch(actions.logoutUser([]))
+    localStorage.removeItem(SMART_STORE_USERNAME);
+    setUserLogin([])
+  }
+
   return (
     <div className="header">  
       <div className="header_top">
         <div className="logo">
           <Link to="/">
-            <img src={require("../../assets/img/logo.png")} alt="logo" />
+            <img src={require("assets/img/logo.png")} alt="logo" />
           </Link>
         </div>
         <div className="header_top_right">
@@ -33,7 +53,7 @@ export default function Header() {
                   <a href="#" title="Français">
                     <span>
                       <img
-                        src={require("../../assets/img/gb.png")}
+                        src={require("assets/img/gb.png")}
                         alt="en"
                         width={26}
                         height={26}
@@ -46,7 +66,7 @@ export default function Header() {
                   <a href="#" title="Français">
                     <span>
                       <img
-                        src={require("../../assets/img/gb.png")}
+                        src={require("assets/img/gb.png")}
                         alt="fr"
                         width={26}
                         height={26}
@@ -59,7 +79,7 @@ export default function Header() {
                   <a href="#" title="Español">
                     <span>
                       <img
-                        src={require("../../assets/img/gb.png")}
+                        src={require("assets/img/gb.png")}
                         alt="es"
                         width={26}
                         height={26}
@@ -72,7 +92,7 @@ export default function Header() {
                   <a href="#" title="Deutsch">
                     <span>
                       <img
-                        src={require("../../assets/img/gb.png")}
+                        src={require("assets/img/gb.png")}
                         alt="de"
                         width={26}
                         height={26}
@@ -85,7 +105,7 @@ export default function Header() {
                   <a href="#" title="Russian">
                     <span>
                       <img
-                        src={require("../../assets/img/gb.png")}
+                        src={require("assets/img/gb.png")}
                         alt="ru"
                         width={26}
                         height={26}
@@ -114,13 +134,23 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          <div className="login">
-            <span>
-              <a href="#">
-                <img src={require("../../assets/img/login.png")} alt="login" />
-              </a>
-            </span>
+          {userLogin.length > 0 ? (<Link to="login">
+          <div className="login-in">
+            {userLogin.map(user => <span key={user}>{user.userName.at(0).toUpperCase()}</span>)}
+            <div className="user">
+              <div className="item-user">Trang cá nhân</div>  
+              <div className="item-user">Sản phẩm yêu thích</div>  
+              <div className="item-user" onClick={logout}>Đăng xuất</div>  
+            </div>
           </div>
+          </Link>) :  
+          (<Link to="login"> 
+            <div className="login">
+              <span>
+                <img src={require("assets/img/login.png")} alt="login" />
+              </span>
+            </div>
+          </Link>)}
           <div className="clear" />
         </div>
         <div className="clear" />

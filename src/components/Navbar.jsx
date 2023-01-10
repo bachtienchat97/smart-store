@@ -1,24 +1,23 @@
 import React  from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import topBrandApis from '../api/topBrand.js';
+import topBrandApis from 'api/topBrand.js';
 
 function Navbar() {
-  const [ topBrand, setTopBrand ] = useState([])
-  let componentMounted = true;
-  useEffect(() => {
-      const getTopBrand = async () => {
-      const result = await topBrandApis.getTopBrandList();
-      
-      if(componentMounted) {
-        setTopBrand(result);
-      }
-      return () => {
-        componentMounted = false;
-      }
-    }
-    getTopBrand();
-  }, [])
+  // const [ topBrand, setTopBrand ] = useState([])
+  // let componentMounted = true;
+  // useEffect(() => {
+  //     const getTopBrand = async () => {
+  //     const result = await topBrandApis.getTopBrandList();
+  //     if(componentMounted) {
+  //       setTopBrand(result);
+  //     }
+  //     return () => {
+  //       componentMounted = false;
+  //     }
+  //   }
+  //   getTopBrand();
+  // }, [])
 
   return (
     <div className="h_menu">
@@ -183,11 +182,11 @@ function Navbar() {
           <ul className="sub-menu list-unstyled sub-menu2">
             <div className="navg-drop-main">
               <div className="nav-drop nav-top-brand">
-                {topBrand.map(item => (<li key={item.id}>
+                {/* {topBrand.map(item => (<li key={item.id}>
                   <span>
                   {item.name}
                   </span>
-                </li>))}
+                </li>))} */}
               </div>
             </div>
           </ul>
