@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import httpClient from 'configAxios';
 
 import { useStore, actions } from 'store';
@@ -7,6 +7,7 @@ import { LoginForm, RegisterForm } from 'components/user'
 
 export default function Login() {
   const [ state, dispatch ] = useStore();
+  const usernameRef = useRef();
 
   const login = async (userInfor) => {
     const response = await httpClient.post("login", userInfor);
@@ -19,7 +20,7 @@ export default function Login() {
   return (
     <div className="content">
      <LoginForm login={login}/>
-     <RegisterForm/>
+     <RegisterForm usernameRef={usernameRef} />
       <div className="clear" />
     </div>
   )

@@ -134,7 +134,7 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          {userLogin.length > 0 ? (<Link to="login">
+          {userLogin.length > 0 ? (<Link to="user/login">
           <div className="login-in">
             {userLogin.map(user => <span key={user}>{user.userName.at(0).toUpperCase()}</span>)}
             <div className="user">
@@ -144,7 +144,7 @@ export default function Header() {
             </div>
           </div>
           </Link>) :  
-          (<Link to="login"> 
+          (<Link to="user/login"> 
             <div className="login">
               <span>
                 <img src={require("assets/img/login.png")} alt="login" />
